@@ -1,0 +1,32 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model ProjetoAgenda.Web.Models.UsuarioLoginModel
+
+
+<h3>Login de Usuarios</h3>
+@Html.ActionLink("Criar Conta de Usuario", "Cadastro")
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        @using (Html.BeginForm("AutenticarUsuario", "Usuario", FormMethod.Post))
+        {
+            @Html.LabelFor(u => u.Login) <br />
+            @Html.TextBoxFor(u => u.Login, new { @class = "form-control" })
+            @Html.ValidationMessageFor(u => u.Login)
+            <br /><br />
+
+            @Html.LabelFor(u => u.Senha) <br />
+            @Html.PasswordFor(u => u.Senha, new { @class = "form-control" })
+            @Html.ValidationMessageFor(u => u.Senha)
+            <br /><br />
+
+            <input type="submit" value="Acessar Sistema" class="btn btn-success btn-block" />
+
+            <p>
+                @ViewBag.Mensagem
+            </p>
+        }
+    </div>
+</div>

@@ -1,0 +1,30 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model ProjetoAgenda.Web.Models.CategoriaCadastroModel
+
+<div class="row">
+    <div class="col-md-4">
+        <h3>Cadastro de Categoria</h3>
+        @Html.ActionLink("Voltar", "Index", "Agenda")
+        <hr />
+        @using (Html.BeginForm("CadastrarCategoria", "Categoria", FormMethod.Post))
+        {
+            <div>
+                @Html.ValidationSummary()
+            </div>
+            @Html.LabelFor(cd => cd.Nome) <br />
+            @Html.TextBoxFor(cd => cd.Nome, new { @class = "form-control" })
+            <br /><br />
+
+            <input type="submit" value="Cadastrar Categoria" class="btn btn-success btn-block" />
+            <hr/>
+            <p>
+                @ViewBag.Mensagem
+            </p>
+        }
+    </div>
+</div>
+

@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <h3>Bem vindo à Agenda de Tarefas</h3>
+
+    @Html.Partial("_dadosUsuario")
+    <hr />
+
+    <p>
+        Selecione a operação desejada:
+    </p>
+
+    <ul>
+        <li> @Html.ActionLink("Criar Nova Tarefa", "Cadastro") </li>
+        <li> @Html.ActionLink("Consultar Agenda", "Consulta") </li>
+        <li> @Html.ActionLink("Cadastrar Categoria", "Cadastro", "Categoria")</li>
+    </ul>
+    <div>
+    </div>
+</body>
+</html>
+

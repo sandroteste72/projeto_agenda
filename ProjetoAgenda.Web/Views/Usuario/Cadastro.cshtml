@@ -1,0 +1,36 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model ProjetoAgenda.Web.Models.UsuarioCadastroModel
+
+<div class="row">
+    <div class="col-md-4">
+        <h3>Cadastro de Usuarios</h3>
+        @Html.ActionLink("Autenticar Usuario", "Login")
+        <hr />
+        @using (Html.BeginForm("CadastrarUsuario", "Usuario", FormMethod.Post))
+        {
+            <div>
+                @Html.ValidationSummary()
+            </div>
+            @Html.LabelFor(u => u.Nome) <br />
+            @Html.TextBoxFor(u => u.Nome, new { @class = "form-control"})
+            <br /><br />
+            @Html.LabelFor(u => u.Login) <br />
+            @Html.TextBoxFor(u => u.Login, new { @class = "form-control" })
+            <br /><br />
+            @Html.LabelFor(u => u.Senha) <br />
+            @Html.PasswordFor(u => u.Senha, new { @class = "form-control" })
+            <br /><br />
+            @Html.LabelFor(u => u.SenhaConfirm) <br />
+            @Html.PasswordFor(u => u.SenhaConfirm, new { @class = "form-control" })
+            <br /><br />
+            <input type="submit" value="Cadastrar Usuario" class="btn btn-success btn-block"/>
+            <hr/>
+            <p>
+                @ViewBag.Mensagem
+            </p>
+        }
+    </div>
+</div>
